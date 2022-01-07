@@ -12,21 +12,20 @@
 		Условие – если A[j]>A[j+1] :	# сравнение текущего элемента со следующим
 			Действие – перестановка местами A[j] и A[j+1]"""
 
-nums=[1,2,6,4,7,5,3]
+nums = [1, 2, 6, 4, 7, 5, 3]
 
 
-def BubbleSort(A):                  # сортировка пузырьком
+def BubbleSort(A):  # сортировка пузырьком
     for i in range(len(A)):
-        for j in range(len(A)-1-i):
-            if A[j] > A[j+1]:
+        for j in range(len(A) - 1 - i):
+            if A[j] > A[j + 1]:
                 a = A[j]
-                A[j] = A[j+1]
-                A[j+1] = a
+                A[j] = A[j + 1]
+                A[j + 1] = a
+
 
 BubbleSort(nums)
 print(nums)
-
-
 
 """2. Функция сортировки вставками insert:
 Цикл 1 – по i от 1 до (len(A)):					# i - текущая позиция при проходе по списку
@@ -40,18 +39,18 @@ print(nums)
                                                                           место
 """
 
+str = ["Bob", "Alex", "Светлана", "Анастасия"]  # значения с строками
+nums2 = [6, 4, 2, 0, 7, 10]  # значения с числами
 
-str = ["Bob", "Alex", "Светлана", "Анастасия"] # значения с строками
-nums2 = [6, 4, 2, 0, 7, 10] # значения с числами
 
 def InsertSort(A):
     for i in range(1, len(A)):
-        t=A[i]
-        j=i
-        while j > 0 and A[j-1]>t:
-            A[j]=A[j-1]
-            j-=1
-        A[j]=t
+        t = A[i]
+        j = i
+        while j > 0 and A[j - 1] > t:
+            A[j] = A[j - 1]
+            j -= 1
+        A[j] = t
 
 
 InsertSort(nums2)
@@ -59,9 +58,6 @@ InsertSort(str)
 
 print(str)
 print(nums2)
-
-
-
 
 """
 3. Функция шейкерной (коктейльной) сортировки shaker - модификации пузырьковой:
@@ -75,26 +71,22 @@ print(nums2)
 			Действие – перестановка местами A[j] и A[j-1]
 """
 
-# nums3=[4, 12, 432, 1, 34, 65, 23]
-#
-# def CocktailSort(A):
-#     N = len(A)
-#     for i in range(0, N/2):
-#         for j in (i, N-1-i):
-#             if A[j]>A[j+1]:
-#                 t=A[j]
-#                 A[j]=A[j+1]
-#                 A[j+1]=t
-#         for j in range(N-2-i, i+1):
-#             if A[j]<A[j-1]:
-#                 temp = A[j]
-#                 A[j] = A[j -1]
-#                 A[j - 1] = temp
-#
-#
-# CocktailSort(nums3)
-# print(nums3)
+nums3=[4, 12, 432, 1, 34, 65, 23]
+def CocktailSort(A):
+    for i in range(len(A) // 2):
+        for j in range(len(A) - 1 - i):
+            if A[j] > A[j + 1]:
+                t = A[j]
+                A[j] = A[j + 1]
+                A[j + 1] = t
+        for j in range(len(A) - 2 - i, i + 1,-1):
+            if A[j] < A[j - 1]:
+                temp = A[j]
+                A[j] = A[j - 1]
+                A[j - 1] = temp
 
+CocktailSort(nums3)
+print(nums3)
 
 """
 4. Функция сортировки выбором select:
@@ -108,16 +100,18 @@ print(nums2)
 
 nums4 = [2, 234, 23, 13, 32, 12, 50]
 
+
 def SelectSort(A):
-    N=len(A)
-    for i in range(0, N-1):
-        m=i
+    N = len(A)
+    for i in range(0, N - 1):
+        m = i
         for j in range(i, N):
-            if A[j]<A[m]:
-                m=j
-        t=A[m]
-        A[m]=A[i]
-        A[i]=t
+            if A[j] < A[m]:
+                m = j
+        t = A[m]
+        A[m] = A[i]
+        A[i] = t
+
 
 SelectSort(nums4)
 print(nums4)
