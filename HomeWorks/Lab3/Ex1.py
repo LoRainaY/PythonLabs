@@ -71,7 +71,9 @@ print(nums2)
 			Действие – перестановка местами A[j] и A[j-1]
 """
 
-nums3=[4, 12, 432, 1, 34, 65, 23]
+nums3 = [4, 12, 432, 1, 34, 65, 23]
+
+
 def CocktailSort(A):
     for i in range(len(A) // 2):
         for j in range(len(A) - 1 - i):
@@ -79,11 +81,12 @@ def CocktailSort(A):
                 t = A[j]
                 A[j] = A[j + 1]
                 A[j + 1] = t
-        for j in range(len(A) - 2 - i, i + 1,-1):
+        for j in range(len(A) - 2 - i, i + 1, -1):
             if A[j] < A[j - 1]:
                 temp = A[j]
                 A[j] = A[j - 1]
                 A[j - 1] = temp
+
 
 CocktailSort(nums3)
 print(nums3)
