@@ -12,7 +12,7 @@ try:
     lines_of_first_file = file1.readlines()  # чтение всех строк
 
     file2.writelines(lines_of_first_file[1::2])  # запись во второй файл строк,
-    # которые удовл. условию среза item[START:STOP:STEP], где START (вторая строка и STOP начало и конец всей строки через 2 строки
+    # которые удовл. условию среза item[START:STOP:STEP], где START (вторая строка) и STOP начало и конец всей строки через 2 строки
 
     print(os.path.getsize(file_txt1))
     print(os.path.getsize(file_txt2))
